@@ -14,6 +14,8 @@
 #include "omv_sensor.h"
 #include "drv_aw9523b.h"
 
+#include "mpconfigboard.h"
+
 static const char *TAG = "esp32_sensors";
 
 #if 0
@@ -23,29 +25,6 @@ extern esp_err_t  camera_subpart_deinit(void);
  #define camera_subpart_deinit esp_camera_deinit 
  #define camera_subpart_reinit esp_camera_init 
 #endif
-//#define BOARD_MATATALAB
-#define BOARD_S3_DevKitC
-//#define BOARD_S3_KORVO_2
-// #define BOARD_MATATALAB_SP5
-
-
-#define CAM_PIN_PWDN -1
-#define CAM_PIN_RESET -1
-#define CAM_PIN_XCLK -1
-#define CAM_PIN_SIOD 17
-#define CAM_PIN_SIOC 18
-
-#define CAM_PIN_D7 39
-#define CAM_PIN_D6 41
-#define CAM_PIN_D5 42
-#define CAM_PIN_D4 5
-#define CAM_PIN_D3 40
-#define CAM_PIN_D2 14
-#define CAM_PIN_D1 47
-#define CAM_PIN_D0 45
-#define CAM_PIN_VSYNC 21
-#define CAM_PIN_HREF 38
-#define CAM_PIN_PCLK 48
 
 static camera_config_t camera_config = {
     .pin_pwdn = CAM_PIN_PWDN,
@@ -114,7 +93,7 @@ static camera_config_t camera_config11 = {
 #define CAM_PWDN_LOW()    ext_write_digital(CAMERA_PWDN_PIN, 0)
 #define CAM_RST_HIGH()    ext_write_digital(CAMERA_RESET_PIN, 1)
 #define CAM_RST_LOW()     ext_write_digital(CAMERA_RESET_PIN, 0)
-#elif defined BOARD_S3_DevKitC
+#elif defined (BOARD_S3_DevKitC) || defined(BOARD_S3_FREENOVE)
 #define CAM_PWDN_HIGH()   gpio_set_level(camera_config.pin_pwdn, 1)
 #define CAM_PWDN_LOW()    gpio_set_level(camera_config.pin_pwdn, 0)
 #define CAM_RST_HIGH()    gpio_set_level(camera_config.pin_reset, 1)

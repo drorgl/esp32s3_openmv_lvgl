@@ -49,7 +49,6 @@
 #endif
 
 //#define BOARD_MATATALAB
-//#define BOARD_S3_DevKitC
 #define BOARD_MATATALAB_SP4
 
 /*********************
