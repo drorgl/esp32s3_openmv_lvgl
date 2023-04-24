@@ -1,49 +1,49 @@
 # esp32s3_openmv_lvgl
  
-# 安装编译指南 #
+# Installation compilation guide #
 
-## 1. 需要在Ubuntu下安装 ESP-IDF 依赖环境 ##
-   当前验证过的环境：
+## 1. Need to install ESP-IDF dependencies under Ubuntu ##
+   The currently verified environment:
    `idf: release v4.4`
 
-## 2. 克隆工程 ##
+## 2. Clone ##
 
-   本工程代码使用submodule来管理openmv和micropython的官方代码，clone 本工程时:
+   This project code uses Submodule to manage the official code of OpenMV and Micropython.
 
    `git clone https://github.com/Kevincoooool/esp32s3_openmv_lvgl/`
 
-## 3. 编译工程 ##
+## 3. Compilation project ##
 
-   现在您可以从 `esp32s3_openmv_lvgl/project/ksdiy`编译您的固件
+   Now you can compile your firmware
    
-   首先进入 `/project/ksdiy` 文件目录
+   First enter `/project/ksdiy` file directory
 
-   - 执行 `make` 编译代码(首次编译，需要先执行make)
+   -Execute the `Make` Compilation Code (compiled for the first time, you need to execute Make first)
    
-   如果编译没有出错，您在目录 `project/ksdiy/` 中应该可以看到新创建的 `build-GENERIC_S3`文件夹。在这个文件夹中，有编译生成的 `application.bin` 等文件。
+   If there is no error in compilation, you should be able to see the newly created `Build-GENERIC_S3` folder in the directory` Project/KSDIY/`.In this folder, there are compiled files such as `application.bin`.
    
-   其它可能经常会用到指令包括
+   Others may often use instructions include
 
-   - 执行 `make erase` 擦除模块的flash
-   - 执行 `make flash` 编译并烧录固件
+   -Execute `Make Erase` erase the Flash of the module
+   - Execute `make flash` Compile and burn the firmware
 
-## 4. 串口工具 ##
-   因为本工程固件支持repl模式，所以可以使用 pytty等串口工具来进行repl调试。
-   [点击下载putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
+## 4. serial tool ##
+   Because the firmware of this project supports the REPL mode, you can use putty and other serial tools to perform repl debugging.
+   [Click to download putty] (https://www.chiark.greennd.org.uk/~Sgtatham/putty/laatest.html))
 
-## 5. 连接你的设备 ##
+## 5. Connect your device ##
 
- 将ESP32S3自带的USB端口连接上电脑，使用OpenMV IDE连接设备或者用Thonny IDE连接都可以进行编辑和运行。
+Connect the USB port that comes with ESP32S3 on the computer. Use the OpenMV IDE connection device or edit and run with the Thonny IDE connection.
  
-## 6. 当前固件性能 ##
+## 6. Current firmware performance ##
 
  RGB QVGA 15FPS
  JPEG VGA 20FPS
  
 # TODO #
 
-- 导入esp-sr，实现语音识别
-- 导入esp-dl，基于esp-who实现人脸识别，提升openmv的识别速度
-- 当前RGB图像 屏幕显示和openmv ide的显示是反色的，如果openmvide显示的话，屏幕就不正常，要屏幕正常的话，ide显示就不正常，需修复
-- 提升USB到IDE的图像传输速度，特别是RGB图像传输时速度太慢，可尝试增大缓冲区
-- 导入esp-adf的components，实现adf的mpy
+- Import ESP-SR to achieve voice recognition
+-In import ESP-DL, realize face recognition based on ESP-WHO, and improve the recognition speed of OpenMV
+-The current RGB image screen display and OpenMV IDE display is anti -color. If the openMVIDE is displayed, the screen is not normal. If the screen is normal, the IDE display is not normal. You need to repair it. You need to repair it. You need to repair it.
+-In the image transmission speed of USB to IDE, especially the speed of RGB image transmission is too slow, you can try to increase the buffer
+-In import the components of ESP-Adf to implement ADF's MPY
