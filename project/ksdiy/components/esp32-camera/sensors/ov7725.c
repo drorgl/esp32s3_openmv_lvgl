@@ -62,8 +62,8 @@ static const uint8_t default_regs[][2] = {
     {COM10,         COM10_VSYNC_NEG | COM10_PCLK_FREE}, //Invert VSYNC and MASK PCLK
     {BDBASE,        0x7F},
     {DBSTEP,        0x03},
-    {AEW,           0x65},
-    {AEB,           0x44},
+    {AEW,           0x75},
+    {AEB,           0x64},
     {VPT,           0xA1},
     {EXHCL,         0x00},
     {AWB_CTRL3,     0xAA},
@@ -101,7 +101,7 @@ static const uint8_t default_regs[][2] = {
     {MTX_CTRL,      0x1E},
 
     {BRIGHTNESS,    0x08},
-    {CONTRAST,      0x20},
+    {CONTRAST,      0x30},
     {UVADJ0,        0x81},
     {SDE,           (SDE_CONT_BRIGHT_EN | SDE_SATURATION_EN)},
 
@@ -118,7 +118,7 @@ static const uint8_t default_regs[][2] = {
     {LC_COEFR,      0x17},
     {LC_CTR,        0x05},
     {COM5,          0xF5}, //0x65
-//  {COM7,          0x04}, //0x65
+
     {0x00,          0x00},
 };
 
@@ -212,7 +212,7 @@ static int set_pixformat(sensor_t *sensor, pixformat_t pixformat)
 
     // Write back register COM7
     ret = SCCB_Write(sensor->slv_addr, COM7, reg);
-    // ret |= SCCB_Write(sensor->slv_addr, DSP_CTRL4, DSP_CTRL4_YUV_RGB);
+
     // Delay
     vTaskDelay(30 / portTICK_PERIOD_MS);
 

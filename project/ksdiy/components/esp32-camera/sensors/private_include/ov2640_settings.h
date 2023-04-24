@@ -67,7 +67,7 @@ const DRAM_ATTR uint8_t ov2640_settings_cif[][2] = {
     {0x2c, 0xff},
     {0x2e, 0xdf},
     {BANK_SEL, BANK_SENSOR},
-    {0x3c, 0x50},
+    {0x3c, 0x32},
     {CLKRC, 0x01},
     {COM2, COM2_OUT_DRIVE_3x},
     {REG04, REG04_DEFAULT},
