@@ -15,7 +15,18 @@
 ## 3. Compilation project ##
 
    Now you can compile your firmware
+
+   Either using espressif docker:
+
+   ```bash
+   https://aloseed.com/it/esp32-s3-wroom-cam/
    
+   docker run --rm -it -v $PWD:/project -w /project/project/ksdiy espressif/idf:release-v4.4
+   
+   make
+   ```
+   
+   or build locally
    First enter `/project/ksdiy` file directory
 
    -Execute the `Make` Compilation Code (compiled for the first time, you need to execute Make first)
@@ -24,7 +35,7 @@
    
    Others may often use instructions include
 
-   -Execute `Make Erase` erase the Flash of the module
+   - Execute `Make Erase` erase the Flash of the module
    - Execute `make flash` Compile and burn the firmware
 
 ## 4. serial tool ##
@@ -43,7 +54,7 @@ Connect the USB port that comes with ESP32S3 on the computer. Use the OpenMV IDE
 # TODO #
 
 - Import ESP-SR to achieve voice recognition
--In import ESP-DL, realize face recognition based on ESP-WHO, and improve the recognition speed of OpenMV
--The current RGB image screen display and OpenMV IDE display is anti -color. If the openMVIDE is displayed, the screen is not normal. If the screen is normal, the IDE display is not normal. You need to repair it. You need to repair it. You need to repair it.
--In the image transmission speed of USB to IDE, especially the speed of RGB image transmission is too slow, you can try to increase the buffer
--In import the components of ESP-Adf to implement ADF's MPY
+- In import ESP-DL, realize face recognition based on ESP-WHO, and improve the recognition speed of OpenMV
+- The current RGB image screen display and OpenMV IDE display is anti -color. If the openMVIDE is displayed, the screen is not normal. If the screen is normal, the IDE display is not normal. You need to repair it. You need to repair it. You need to repair it.
+- In the image transmission speed of USB to IDE, especially the speed of RGB image transmission is too slow, you can try to increase the buffer
+- In import the components of ESP-Adf to implement ADF's MPY
